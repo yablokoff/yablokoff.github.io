@@ -14,10 +14,35 @@ $( function() {
 
 	//menu
 	(function(){
-		var $panelTop = $(".js-panel-top");
+		var $panelTop = $(".js-panel-top"),
+			$slide1 = $(".js-slide1"),
+			heightSlide1 = $slide1.height(),
+
+			cssClassTop = "_top"
+		;
 
 		$window.scroll(function() {
-			$panelTop.toggleClass(cssClassActive, $window.scrollTop() > 0);
+
+			if ($window.scrollTop() > heightSlide1/2) {
+
+				if (!$panelTop.is("." + cssClassActive)) {
+					$panelTop.addClass(cssClassTop);
+
+					setTimeout(function(){
+						$panelTop.addClass(cssClassActive).removeClass(cssClassTop);
+					}, 100);
+				}
+
+			} else if ($panelTop.is("." + cssClassActive)) {
+
+				$panelTop.addClass(cssClassTop);
+
+				setTimeout(function(){
+					$panelTop.removeClass(cssClassActive).removeClass(cssClassTop);
+				}, 100);
+
+			}
+
 		});
 
 	})();
