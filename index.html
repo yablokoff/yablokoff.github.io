@@ -17,23 +17,29 @@
 <body>
 	<div class="panel-top js-panel-top">
 		<a href="/" class="logo">DigiFabster</a>
-		<ul class="panel-top__menu">
-			<li><a href="#">Product</a></li>
-			<li><a href="#">Solutions</a></li>
-			<li><a href="#">Pricing</a></li>
-			<li><a href="#">Resourses</a></li>
-			<li>
-				<a href="#">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 14 18">
-						<path class="lock" fillRule="evenodd" d="M 12 7C 12 7 12 5 12 5 12 2.02 9.86-0 7-0 4.14-0 2 2.02 2 5 2 5 2 7 2 7 2 7 0 7 0 7 0 7 0 18 0 18 0 18 14 18 14 18 14 18 14 7 14 7 14 7 12 7 12 7ZM 4 5C 4 2.72 4.81 2 7 2 9.09 2 10 2.73 10 5 10 5 10 7 10 7 10 7 4 7 4 7 4 7 4 5 4 5ZM 12 16C 12 16 2 16 2 16 2 16 2 9 2 9 2 9 12 9 12 9 12 9 12 16 12 16Z" />
-					</svg>
-					Log in
-				</a>
-			</li>
-		</ul>
-		<div class="panel-top__buttons">
-			<a href="#" class="btn">Get started</a>
-			<a href="#" class="btn _white">Request a demo</a>
+		<div class="panel-top__nav js-menu">
+			<i class="panel-top__nav__door js-menu-door"></i>
+			<div class="panel-top__nav__content">
+				<i class="panel-top__nav__content__close js-menu-close"></i>
+				<ul class="panel-top__menu">
+					<li><a href="#">Product</a></li>
+					<li><a href="#">Solutions</a></li>
+					<li><a href="#">Pricing</a></li>
+					<li><a href="#">Resourses</a></li>
+					<li>
+						<a href="#">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 14 18">
+								<path class="lock" fillRule="evenodd" d="M 12 7C 12 7 12 5 12 5 12 2.02 9.86-0 7-0 4.14-0 2 2.02 2 5 2 5 2 7 2 7 2 7 0 7 0 7 0 7 0 18 0 18 0 18 14 18 14 18 14 18 14 7 14 7 14 7 12 7 12 7ZM 4 5C 4 2.72 4.81 2 7 2 9.09 2 10 2.73 10 5 10 5 10 7 10 7 10 7 4 7 4 7 4 7 4 5 4 5ZM 12 16C 12 16 2 16 2 16 2 16 2 9 2 9 2 9 12 9 12 9 12 9 12 16 12 16Z" />
+							</svg>
+							Log in
+						</a>
+					</li>
+				</ul>
+				<div class="panel-top__buttons">
+					<a href="#" class="btn">Get started</a>
+					<a href="#" class="btn _white">Request a demo</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="page">
@@ -141,14 +147,14 @@
 		<!--_slide5-->
 		<div class="page__slide _slide5">
 			<div class="width-site">
-				<h2 class="page__slide__title">How it works</h2>
+				<h2 class="page__slide__title">3D web-to-print solution: from quotes to payments</h2>
 				<div class="steps">
-					<ol class="grid">
-						<li class="grid__col steps__col"><div class="steps__name">Sign up</div></li>
-						<li class="grid__col steps__col"><div class="steps__name">Set up</div></li>
-						<li class="grid__col steps__col"><div class="steps__name">Install widget</div></li>
-						<li class="grid__col steps__col"><div class="steps__name">Enjoy rewards</div></li>
-					</ol>
+					<ul class="grid">
+						<li class="grid__col steps__col"><div class="steps__name _icon1">Install widget</div></li>
+						<li class="grid__col steps__col"><div class="steps__name _icon2">Offer Quotes Instantly</div></li>
+						<li class="grid__col steps__col"><div class="steps__name _icon3">Deal with Clients Online</div></li>
+						<li class="grid__col steps__col"><div class="steps__name _icon4">Get Paid Faster</div></li>
+					</ul>
 				</div>
 				<div class="page__slide__button">
 					<a href="#" class="btn _big">Get started</a>
@@ -378,15 +384,18 @@
 					</a>
 				</div>
 			</div>
+			<div class="width-site">
+				<div class="page__slide__button"><a href="#" class="btn _white _big">Read our blog</a></div>
+			</div>
 		</div>
 		<!--/_slide10-->
 	</div>
 
 	<div class="footer">
 		<div class="width-site">
-			<div class="footer__info">
-				<dl class="footer__info__col">
-					<dt class="footer__info__col__title">About CRM</dt>
+			<div class="footer__info js-footer-inf">
+				<dl class="footer__info__col js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">About CRM</span></dt>
 					<dd class="footer__info__col__content">
 						<ul class="footer__info__col__content__list">
 							<li><a href="#">Product</a></li>
@@ -397,8 +406,8 @@
 						</ul>
 					</dd>
 				</dl>
-				<dl class="footer__info__col">
-					<dt class="footer__info__col__title">Resources</dt>
+				<dl class="footer__info__col js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">Resources</span></dt>
 					<dd class="footer__info__col__content">
 						<ul class="footer__info__col__content__list">
 							<li><a href="#">How it works</a></li>
@@ -407,8 +416,8 @@
 						</ul>
 					</dd>
 				</dl>
-				<dl class="footer__info__col">
-					<dt class="footer__info__col__title">Need help?</dt>
+				<dl class="footer__info__col js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">Need help?</span></dt>
 					<dd class="footer__info__col__content">
 
 						<dl class="footer__info__support">
@@ -416,14 +425,14 @@
 							<dd>
 								<div class="footer__info__support__country _canada">+1 862 812 0284<br />(US and Canada)</div>
 								<div class="footer__info__support__country _europe">+31 6 16 08 71 12<br />(Europe)</div>
-								<a href="mailto:info@digifabster.com">info@digifabster.com</a>
+								<br /><a href="mailto:info@digifabster.com">info@digifabster.com</a>
 							</dd>
 						</dl>
 
 					</dd>
 				</dl>
-				<dl class="footer__info__col">
-					<dt class="footer__info__col__title">Company</dt>
+				<dl class="footer__info__col js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">Company</span></dt>
 					<dd class="footer__info__col__content">
 						<ul class="footer__info__col__content__list">
 							<li><a href="#">About</a></li>
@@ -432,8 +441,8 @@
 						</ul>
 					</dd>
 				</dl>
-				<dl class="footer__info__col _updates">
-					<dt class="footer__info__col__title">Get updates</dt>
+				<dl class="footer__info__col _updates js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">Get updates</span></dt>
 					<dd class="footer__info__col__content">
 						<form action="#" class="form">
 							<input type="text" value="" placeholder="Enter email" class="form__field" />

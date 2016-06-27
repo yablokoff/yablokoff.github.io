@@ -5,14 +5,14 @@ $( function() {
 
 		cssClassError = "_error",
 		cssClassActive = "_active",
-		cssClassWhite = "_white",
+		cssClassOpen = "_open",
 		cssClassDisable = "_disable",
 		cssClassNotAnimate = "_notAnimate"
 
 
 	;
 
-	//menu
+	//panel-top
 	(function(){
 		var $panelTop = $(".js-panel-top"),
 			$slide1 = $(".js-slide1"),
@@ -21,31 +21,49 @@ $( function() {
 			cssClassTop = "_top"
 		;
 
+		function viewMenu ($element) {
+			var $box = $element.closest(".js-panel-top");
+
+			$box.toggleClass(cssClassOpen);
+		}
+
 		$window.scroll(function() {
 
-			if ($window.scrollTop() > heightSlide1/2) {
+			if ($body.width() > 749) {
 
-				if (!$panelTop.is("." + cssClassActive)) {
+				if ($window.scrollTop() > heightSlide1/2) {
+
+					if (!$panelTop.is("." + cssClassActive)) {
+						$panelTop.addClass(cssClassTop);
+
+						setTimeout(function(){
+							$panelTop.addClass(cssClassActive).removeClass(cssClassTop);
+						}, 100);
+					}
+
+				} else if ($panelTop.is("." + cssClassActive)) {
+
 					$panelTop.addClass(cssClassTop);
 
 					setTimeout(function(){
-						$panelTop.addClass(cssClassActive).removeClass(cssClassTop);
+						$panelTop.removeClass(cssClassActive).removeClass(cssClassTop);
 					}, 100);
+
 				}
-
-			} else if ($panelTop.is("." + cssClassActive)) {
-
-				$panelTop.addClass(cssClassTop);
-
-				setTimeout(function(){
-					$panelTop.removeClass(cssClassActive).removeClass(cssClassTop);
-				}, 100);
-
 			}
 
 		});
 
+		$panelTop.on ("click", ".js-menu-door", (function(){
+			viewMenu($(this));
+		}));
+
+		$panelTop.on ("click", ".js-menu-close", (function(){
+			viewMenu($(this));
+		}));
+
 	})();
+
 
 
 	//gallery
@@ -141,6 +159,21 @@ $( function() {
 		$lents.each(function() {
 			gallery($(this));
 		});
+
+	})();
+
+	//footer
+	(function(){
+		var $footer = $(".js-footer-inf");
+
+		$footer.on ("click", ".js-footer-inf-item-door", (function(){
+			var $box = $(this).closest(".js-footer-inf-item");
+
+			if ($body.width() < 750) {
+				$box.toggleClass(cssClassActive);
+			}
+		}));
+
 
 	})();
 
