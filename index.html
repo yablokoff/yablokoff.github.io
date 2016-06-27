@@ -17,23 +17,29 @@
 <body>
 	<div class="panel-top js-panel-top">
 		<a href="/" class="logo">DigiFabster</a>
-		<ul class="panel-top__menu">
-			<li><a href="#">Product</a></li>
-			<li><a href="#">Solutions</a></li>
-			<li><a href="#">Pricing</a></li>
-			<li><a href="#">Resourses</a></li>
-			<li>
-				<a href="#">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 14 18">
-						<path class="lock" fillRule="evenodd" d="M 12 7C 12 7 12 5 12 5 12 2.02 9.86-0 7-0 4.14-0 2 2.02 2 5 2 5 2 7 2 7 2 7 0 7 0 7 0 7 0 18 0 18 0 18 14 18 14 18 14 18 14 7 14 7 14 7 12 7 12 7ZM 4 5C 4 2.72 4.81 2 7 2 9.09 2 10 2.73 10 5 10 5 10 7 10 7 10 7 4 7 4 7 4 7 4 5 4 5ZM 12 16C 12 16 2 16 2 16 2 16 2 9 2 9 2 9 12 9 12 9 12 9 12 16 12 16Z" />
-					</svg>
-					Log in
-				</a>
-			</li>
-		</ul>
-		<div class="panel-top__buttons">
-			<a href="#" class="btn">Get started</a>
-			<a href="#" class="btn _white">Request a demo</a>
+		<div class="panel-top__nav js-menu">
+			<i class="panel-top__nav__door js-menu-door"></i>
+			<div class="panel-top__nav__content">
+				<i class="panel-top__nav__content__close js-menu-close"></i>
+				<ul class="panel-top__menu">
+					<li><a href="#">Product</a></li>
+					<li><a href="#">Solutions</a></li>
+					<li><a href="#">Pricing</a></li>
+					<li><a href="#">Resourses</a></li>
+					<li>
+						<a href="#">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 14 18">
+								<path class="lock" fillRule="evenodd" d="M 12 7C 12 7 12 5 12 5 12 2.02 9.86-0 7-0 4.14-0 2 2.02 2 5 2 5 2 7 2 7 2 7 0 7 0 7 0 7 0 18 0 18 0 18 14 18 14 18 14 18 14 7 14 7 14 7 12 7 12 7ZM 4 5C 4 2.72 4.81 2 7 2 9.09 2 10 2.73 10 5 10 5 10 7 10 7 10 7 4 7 4 7 4 7 4 5 4 5ZM 12 16C 12 16 2 16 2 16 2 16 2 9 2 9 2 9 12 9 12 9 12 9 12 16 12 16Z" />
+							</svg>
+							Log in
+						</a>
+					</li>
+				</ul>
+				<div class="panel-top__buttons">
+					<a href="#" class="btn">Get started</a>
+					<a href="#" class="btn _white">Request a demo</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="page">
@@ -387,9 +393,9 @@
 
 	<div class="footer">
 		<div class="width-site">
-			<div class="footer__info">
-				<dl class="footer__info__col">
-					<dt class="footer__info__col__title"><span>About CRM</span></dt>
+			<div class="footer__info js-footer-inf">
+				<dl class="footer__info__col js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">About CRM</span></dt>
 					<dd class="footer__info__col__content">
 						<ul class="footer__info__col__content__list">
 							<li><a href="#">Product</a></li>
@@ -400,8 +406,8 @@
 						</ul>
 					</dd>
 				</dl>
-				<dl class="footer__info__col">
-					<dt class="footer__info__col__title"><span>Resources</span></dt>
+				<dl class="footer__info__col js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">Resources</span></dt>
 					<dd class="footer__info__col__content">
 						<ul class="footer__info__col__content__list">
 							<li><a href="#">How it works</a></li>
@@ -410,8 +416,8 @@
 						</ul>
 					</dd>
 				</dl>
-				<dl class="footer__info__col">
-					<dt class="footer__info__col__title"><span>Need help?</span></dt>
+				<dl class="footer__info__col js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">Need help?</span></dt>
 					<dd class="footer__info__col__content">
 
 						<dl class="footer__info__support">
@@ -425,8 +431,8 @@
 
 					</dd>
 				</dl>
-				<dl class="footer__info__col">
-					<dt class="footer__info__col__title"><span>Company</span></dt>
+				<dl class="footer__info__col js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">Company</span></dt>
 					<dd class="footer__info__col__content">
 						<ul class="footer__info__col__content__list">
 							<li><a href="#">About</a></li>
@@ -435,8 +441,8 @@
 						</ul>
 					</dd>
 				</dl>
-				<dl class="footer__info__col _updates">
-					<dt class="footer__info__col__title"><span>Get updates</span></dt>
+				<dl class="footer__info__col _updates js-footer-inf-item">
+					<dt class="footer__info__col__title"><span class="js-footer-inf-item-door">Get updates</span></dt>
 					<dd class="footer__info__col__content">
 						<form action="#" class="form">
 							<input type="text" value="" placeholder="Enter email" class="form__field" />
