@@ -154,9 +154,12 @@ input:focus:-ms-input-placeholder      {color: transparent}
 	height: 45px;
 	padding: 16px 10px 0 10px;
 	cursor: pointer;
-	background: #cccccc;
 	box-sizing: border-box;
 }
+
+.panel-top__nav__door svg { display: block; }
+
+.panel-top__nav__door__ic { fill: #ffffff; }
 
 .panel-top__nav__content {
 	display: none;
@@ -175,10 +178,18 @@ input:focus:-ms-input-placeholder      {color: transparent}
 	right: 0;
 	width: 45px;
 	height: 45px;
-	padding: 16px 10px 0 10px;
 	cursor: pointer;
-	background: #cccccc;
 	box-sizing: border-box;
+}
+.panel-top__nav__content__close:before {
+	content: ' ';
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	width: 19px;
+	height: 19px;
+	background: url("../i/close.svg") no-repeat 0 0;
+	background-size: cover;
 }
 
 .panel-top._open .panel-top__nav__content { display: block; }
@@ -188,8 +199,8 @@ input:focus:-ms-input-placeholder      {color: transparent}
 }
 
 .panel-top__menu li {
-	font-size: 25px;
-	line-height: 25px;
+	font-size: 23px;
+	line-height: 23px;
 	margin-bottom: 30px;
 }
 
@@ -244,11 +255,13 @@ input:focus:-ms-input-placeholder      {color: transparent}
 	border-color: #146fab;
 }
 
+.panel-top._active .panel-top__nav__door__ic { fill: #146fab; }
+
 .panel-top._active._open .logo { background-image: url("../i/logo_white.svg");  }
 .panel-top._active._open .panel-top__menu a,
 .panel-top._active._open .panel-top__menu a:hover { color: #ffffff; }
 .panel-top._active._open .btn._white,
-.panel-top._active._open .btn._white:hover {
+.panel-top._open .btn._white:hover {
 	color: #ffffff !important;
 	border-color: #ffffff !important;
 }
@@ -606,7 +619,9 @@ input:focus:-ms-input-placeholder      {color: transparent}
 	content: " ";
 	display: block;
 	margin: 0 auto 11px auto;
-	background: #cccccc;
+	background-size: cover;
+	background-position: 0 0;
+	background-repeat: no-repeat;
 }
 
 .steps__name._icon1:before,
@@ -615,14 +630,19 @@ input:focus:-ms-input-placeholder      {color: transparent}
 	height: 46px;
 }
 
+.steps__name._icon1:before { background-image: url("../i/hiw_1.svg"); }
+.steps__name._icon2:before { background-image: url("../i/hiw_2.svg"); }
+
 .steps__name._icon3:before {
 	width: 64px;
 	height: 38px;
+	background-image: url("../i/hiw_3.svg");
 }
 
 .steps__name._icon4:before {
 	width: 60px;
 	height: 36px;
+	background-image: url("../i/hiw_4.svg");
 }
 
 
@@ -1040,16 +1060,24 @@ input:focus:-ms-input-placeholder      {color: transparent}
 	border-bottom-right-radius: 0;
 }
 
-.footer .form .btn {
+.footer .btn {
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: 45px;
 	height: 100%;
 	font-size: 0;
+	padding: 0 0 0 11px;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
+
+.footer .btn svg {
+	display: block;
+	width: 19px;
+	height: 14px;
+}
+
 
 .footer__info__col._active .footer__info__col__title span {
 	color: #6ca7cd;
@@ -1275,7 +1303,6 @@ input:focus:-ms-input-placeholder      {color: transparent}
 		position: absolute;
 		top: -59px;
 		left: 50%;
-		background: #cccccc;
 		margin: 0;
 	}
 
