@@ -27,29 +27,31 @@ $( function() {
 			$box.toggleClass(cssClassOpen);
 		}
 
-		$window.scroll(function() {
+		if ($body.is(".index")) {
+			$window.scroll(function() {
 
-			if ($window.scrollTop() > heightSlide1/2) {
+				if ($window.scrollTop() > heightSlide1/2) {
 
-				if (!$panelTop.is("." + cssClassActive)) {
+					if (!$panelTop.is("." + cssClassActive)) {
+						$panelTop.addClass(cssClassTop);
+
+						setTimeout(function(){
+							$panelTop.addClass(cssClassActive).removeClass(cssClassTop);
+						}, 100);
+					}
+
+				} else if ($panelTop.is("." + cssClassActive)) {
+
 					$panelTop.addClass(cssClassTop);
 
 					setTimeout(function(){
-						$panelTop.addClass(cssClassActive).removeClass(cssClassTop);
+						$panelTop.removeClass(cssClassActive).removeClass(cssClassTop);
 					}, 100);
+
 				}
 
-			} else if ($panelTop.is("." + cssClassActive)) {
-
-				$panelTop.addClass(cssClassTop);
-
-				setTimeout(function(){
-					$panelTop.removeClass(cssClassActive).removeClass(cssClassTop);
-				}, 100);
-
-			}
-
-		});
+			});
+		}
 
 		$panelTop.on ("click", ".js-menu-door", (function(){
 			viewMenu($(this));
