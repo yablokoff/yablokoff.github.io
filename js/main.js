@@ -173,6 +173,16 @@ $( function() {
 			}
 		}));
 
+	})();
+
+
+	//tabs
+	(function(){
+		var $tabs = $(".tabs");
+
+		$tabs.on ("click", ".js-tabs-item", (function(){
+			$(this).addClass(cssClassActive).siblings().removeClass(cssClassActive);
+		}));
 
 	})();
 
