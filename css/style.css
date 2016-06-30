@@ -240,6 +240,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 .panel-top__menu li {
 	font-size: 23px;
 	line-height: 23px;
+	color: #146fab;
 	margin-bottom: 30px;
 }
 
@@ -1355,6 +1356,71 @@ a[href^="tel:"]:hover { text-decoration: none; }
 .page__content__middle__content p { margin-bottom: 24px; }
 
 
+
+.resources { padding: 67px 0 80px 0; }
+
+.resources__list { margin-top: 21px; }
+
+.resources__list__item {
+	display: block;
+	max-width: 290px;
+	color: #666666;
+	text-align: center;
+	padding: 44px 20px;
+	border-left: 15px solid #ffffff;
+	border-right: 15px solid #ffffff;
+	background: #f4f4f4;
+	margin: 0 auto 30px auto;
+}
+
+.resources__list__item:hover { text-decoration: none; }
+
+.resources__list__item__title {
+	display: block;
+	position: relative;
+	font: 22px/22px 'ProximaNovaExCn-Semibold', sans-serif;
+	color: #000000;
+	text-transform: uppercase;
+	padding-top: 82px;
+	margin-bottom: 9px;
+}
+
+.resources__list__item__title:before {
+	content: ' ';
+	position: absolute;
+	left: 50%;
+	background: red;
+}
+
+.resources__list__item__title._icon1:before {
+	top: 7px;
+	width: 65px;
+	height: 52px;
+	margin-left: -32px;
+}
+
+.resources__list__item__title._icon2:before {
+	top: 10px;
+	width: 85px;
+	height: 56px;
+	margin-left: -42px;
+}
+
+.resources__list__item__title._icon3:before {
+	top: 0;
+	width: 51px;
+	height: 64px;
+	margin-left: -25px;
+}
+
+.resources__list__item__title._icon4:before {
+	top: 0;
+	width: 66px;
+	height: 67px;
+	margin-left: -33px;
+}
+
+
 /******/
 @media (min-width: 600px) {
 	.news { font-size: 0; }
@@ -1375,6 +1441,16 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	}
 
 	.events__item__col._link { width: 19%; text-align: right; }
+
+	.resources__list { text-align: center; font-size: 0; }
+
+	.resources__list__item {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		max-width: 290px;
+		font-size: 14px;
+	}
 }
 
 @media (min-width: 750px) {
@@ -1975,6 +2051,16 @@ a[href^="tel:"]:hover { text-decoration: none; }
 		margin: 0;
 		max-width: inherit;
 	}
+
+
+	.resources__list { margin: 21px -15px 0 -15px; }
+
+	.resources__list__item {
+		max-width: inherit;
+		margin: 0;
+	}
+	.resources__list._col4 .resources__list__item { width: 25%; }
+	.resources__list._col3 .resources__list__item { width: 33%; }
 }
 
 
