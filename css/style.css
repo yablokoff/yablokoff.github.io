@@ -91,6 +91,12 @@ a[href^="tel:"]:hover { text-decoration: none; }
 }
 
 .form { text-align: center; }
+.form._white {
+	padding: 30px 20px;
+	background: #ffffff;
+	box-sizing: border-box;
+}
+
 .form p { margin-bottom: 15px; }
 
 .form__row { position: relative; margin-bottom: 20px; }
@@ -136,6 +142,52 @@ a[href^="tel:"]:hover { text-decoration: none; }
 .form__field:focus::-moz-placeholder          {color: transparent}
 .form__field:focus:-ms-input-placeholder      {color: transparent}
 
+
+.form__drag-drop {
+	padding: 28px 0 30px 0;
+	text-align: center;
+	border: 2px dashed #e3e3e3;
+}
+
+.form__drag-drop__empty {
+	display: inline-block;
+	position: relative;
+	padding-left: 45px;
+	color: #999999;
+}
+
+.form__drag-drop__empty:before {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 36px;
+	height: 28px;
+	margin-top: -14px;
+	background: red;
+}
+
+.form__drag-drop__empty__file {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+
+.form__drag-drop__empty__file__field {
+	display: block;
+	height: 22px;
+	margin: 0;
+	font-size: 50px;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.form__drag-drop__empty__file__btn { color: #146fab }
 
 
 
@@ -1195,12 +1247,6 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	background: #ececec;
 }
 
-.contact .form {
-	padding: 30px 20px;
-	background: #ffffff;
-	box-sizing: border-box;
-}
-
 .contact__info {
 	margin: 0 auto 40px auto;
 	font-size: 0;
@@ -1357,11 +1403,11 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 
 
-.resources { padding: 67px 0 80px 0; }
+.page__slide._read-more { padding: 67px 0 80px 0; }
 
-.resources__list { margin-top: 21px; }
+.b-info { margin-top: 28px; }
 
-.resources__list__item {
+.b-info__item {
 	display: block;
 	max-width: 290px;
 	color: #666666;
@@ -1373,9 +1419,9 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	margin: 0 auto 30px auto;
 }
 
-.resources__list__item:hover { text-decoration: none; }
+.b-info__item:hover { text-decoration: none; }
 
-.resources__list__item__title {
+.b-info__item__title {
 	display: block;
 	position: relative;
 	font: 22px/22px 'ProximaNovaExCn-Semibold', sans-serif;
@@ -1385,35 +1431,35 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	margin-bottom: 9px;
 }
 
-.resources__list__item__title:before {
+.b-info__item__title:before {
 	content: ' ';
 	position: absolute;
 	left: 50%;
 	background: red;
 }
 
-.resources__list__item__title._icon1:before {
+.b-info__item__title._icon1:before {
 	top: 7px;
 	width: 65px;
 	height: 52px;
 	margin-left: -32px;
 }
 
-.resources__list__item__title._icon2:before {
+.b-info__item__title._icon2:before {
 	top: 10px;
 	width: 85px;
 	height: 56px;
 	margin-left: -42px;
 }
 
-.resources__list__item__title._icon3:before {
+.b-info__item__title._icon3:before {
 	top: 0;
 	width: 51px;
 	height: 64px;
 	margin-left: -25px;
 }
 
-.resources__list__item__title._icon4:before {
+.b-info__item__title._icon4:before {
 	top: 0;
 	width: 66px;
 	height: 67px;
@@ -1491,7 +1537,60 @@ a[href^="tel:"]:hover { text-decoration: none; }
 .page__error__in p { margin-bottom: 18px; }
 
 
+.page__slide__header {
+	padding: 73px 0 69px 0;
+	color: #ffffff;
+	margin-bottom: 80px;
+	background: #146fab;
+}
 
+.page__slide__header h1 { color: #ffffff; }
+
+.support {
+	padding: 0 0 80px 0;
+	background: #ececec;
+}
+
+.support h2 { margin-bottom: 3px; }
+
+.support__contact {
+	font-size: 0;
+	margin-top: 45px;
+	padding-bottom: 23px;
+}
+
+.support__contact__item {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 33%;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.support__contact__item a[href^="tel:"] { color: #ffffff; }
+
+.support__contact__item a {
+	display: inline-block;
+	position: relative;
+	padding-left: 50px;
+}
+
+.support__contact__item a:before {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 40px;
+	height: 27px;
+	margin-top: -13px;
+	background: url("../i/flags.png") no-repeat 0 0;
+}
+
+.support__contact__item._canada a:before { background-position: 0 -40px; }
+.support__contact__item._europe a:before { background-position: 0 -70px; }
+.support__contact__item._russia a:before { background-position: 0 -100px; }
 
 /******/
 @media (min-width: 600px) {
@@ -1514,9 +1613,9 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 	.events__item__col._link { width: 19%; text-align: right; }
 
-	.resources__list { text-align: center; font-size: 0; }
+	.b-info { text-align: center; font-size: 0; }
 
-	.resources__list__item {
+	.b-info__item {
 		display: inline-block;
 		vertical-align: top;
 		width: 50%;
@@ -1847,6 +1946,11 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 	.social__item { margin-right: 11px; margin-left: 0; }
 
+	.form._white {
+		max-width: 840px;
+		margin: 0 auto;
+		padding: 44px 9% 50px 9%;
+	}
 
 	.form .grid {
 		display: table;
@@ -1862,12 +1966,6 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	.form__row__col { width: 50%; }
 	.form__row__col:first-child { padding-right: 10px; margin-bottom: 0; }
 	.form__row__col:last-child { padding-left: 10px; }
-
-	.contact .form {
-		max-width: 840px;
-		margin: 0 auto;
-		padding: 44px 10% 50px 10%;
-	}
 
 
 	.contact__info { max-width: 840px; }
@@ -2125,14 +2223,14 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	}
 
 
-	.resources__list { margin: 21px -15px 0 -15px; }
+	.b-info { margin: 28px -15px 0 -15px; }
 
-	.resources__list__item {
+	.b-info__item {
 		max-width: inherit;
 		margin: 0;
 	}
-	.resources__list._col4 .resources__list__item { width: 25%; }
-	.resources__list._col3 .resources__list__item { width: 33%; }
+	.b-info._col4 .b-info__item { width: 25%; }
+	.b-info._col3 .b-info__item { width: 33%; }
 }
 
 
@@ -2164,11 +2262,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 		margin: 2px 3px 0 0;
 	}
 
-	.contact .form {
-		width: 67%;
-		padding: 44px 15% 50px 15%;
-	}
-
+	.form._white { width: 67%; }
 	.contact__info { width: 67%; }
 }
 
