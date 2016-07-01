@@ -186,4 +186,16 @@ $( function() {
 
 	})();
 
+	//faq
+	(function(){
+		var $faqBox = $(".js-faq");
+
+		$faqBox.on ("click", ".js-faq-door", (function(){
+			var $item = $(this).closest(".js-faq-item");
+
+			$item.toggleClass(cssClassActive);
+
+		}));
+	})();
+
 });

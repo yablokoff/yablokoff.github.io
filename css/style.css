@@ -1270,7 +1270,19 @@ a[href^="tel:"]:hover { text-decoration: none; }
 }
 
 .contact__info__item__icon {
+	position: relative;
 	background: #54b8e8;
+}
+
+.contact__info__item__icon:before {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 21px;
+	height: 23px;
+	margin: -11px 0 0 -10px;
+	background: url("../i/contactus.svg") no-repeat 0 0;
 }
 
 .find-us { padding: 40px 0; }
@@ -1404,6 +1416,15 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 
 .page__slide._read-more { padding: 67px 0 80px 0; }
+.page__slide._join { padding: 67px 0 74px 0; }
+
+.page__slide._join h2 { margin-bottom: 21px; }
+.page__slide._join .page__slide__button__note {
+	font-size: 14px;
+	margin-top: 22px;
+}
+
+
 
 .b-info { margin-top: 28px; }
 
@@ -1435,7 +1456,9 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	content: ' ';
 	position: absolute;
 	left: 50%;
-	background: red;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .b-info__item__title._icon1:before {
@@ -1443,6 +1466,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	width: 65px;
 	height: 52px;
 	margin-left: -32px;
+	background-image: url("../i/recouerces_1.svg");
 }
 
 .b-info__item__title._icon2:before {
@@ -1450,6 +1474,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	width: 85px;
 	height: 56px;
 	margin-left: -42px;
+	background-image: url("../i/recouerces_2.svg");
 }
 
 .b-info__item__title._icon3:before {
@@ -1457,6 +1482,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	width: 51px;
 	height: 64px;
 	margin-left: -25px;
+	background-image: url("../i/recouerces_3.svg");
 }
 
 .b-info__item__title._icon4:before {
@@ -1464,6 +1490,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	width: 66px;
 	height: 67px;
 	margin-left: -33px;
+	background-image: url("../i/recouerces_4.svg");
 }
 
 .error { color: #ffffff; background: #146fab; }
@@ -1488,6 +1515,18 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	background: #ffffff !important;
 	border-color: #ffffff !important;
 }
+
+.error .panel-top__buttons .btn {
+	color: #146fab;
+	background: #ffffff;
+	border-color: #ffffff;
+}
+
+.error .panel-top__buttons .btn._white {
+	color: #ffffff;
+	background: none;
+}
+
 
 .page__error {
 	position: absolute;
@@ -1544,7 +1583,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	background: #146fab;
 }
 
-.page__slide__header h1 { color: #ffffff; }
+.page__slide__header h1 { color: #ffffff; margin-bottom: 0; }
 
 .support {
 	padding: 0 0 80px 0;
@@ -1591,6 +1630,67 @@ a[href^="tel:"]:hover { text-decoration: none; }
 .support__contact__item._canada a:before { background-position: 0 -40px; }
 .support__contact__item._europe a:before { background-position: 0 -70px; }
 .support__contact__item._russia a:before { background-position: 0 -100px; }
+
+
+
+.faq { padding: 0 0 80px 0; }
+
+.faq .page__slide__header { margin-bottom: 52px; }
+
+
+.faq__list dt {
+	font: 30px/30px 'ProximaNovaExCn-Semibold', sans-serif;
+	color: #000000;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 20px;
+}
+
+.faq__list dd { padding-bottom: 23px; }
+
+
+.faq__list__item { margin-bottom: 33px; }
+
+.faq__list__item__door {
+	font-size: 17px;
+}
+.faq__list__item__door span {
+	display: inline-block;
+	color: #333333;
+	border-bottom: 1px dotted #333333;
+	cursor: pointer;
+}
+
+.faq__list__item__content {
+	display: none;
+	padding-top: 12px;
+}
+
+.faq__list__item._active .faq__list__item__door span {
+	font-weight: 700;
+	color: #000000;
+	border-bottom-color: transparent;
+}
+.faq__list__item._active .faq__list__item__content { display: block; }
+
+.faq__note {
+	padding: 25px 20px 24px 20px;
+	text-align: center;
+	font-size: 15px;
+	color: #666666;
+	border: 1px dashed #aaaaaa;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /******/
 @media (min-width: 600px) {
@@ -2231,6 +2331,12 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	}
 	.b-info._col4 .b-info__item { width: 25%; }
 	.b-info._col3 .b-info__item { width: 33%; }
+
+	.faq__list { margin: 0 -10px; }
+	.faq__list__col {
+		width: 50%;
+		padding: 0 10px;
+	}
 }
 
 
