@@ -198,4 +198,37 @@ $( function() {
 		}));
 	})();
 
+
+
+	//form
+	(function(){
+		var $selectBox = $(".js-form-select");
+
+
+		$selectBox.each(function () {
+			var $select = $(this).find('select');
+
+			$select.bind('change.select', function () {
+				var option = $select.children(':selected'),
+					$box = $(this).closest(".js-form-select"),
+					$text = $box.find(".js-form-select-text"),
+
+					text = option.val() ? option.text() : $text.attr("data-text-empty")
+				;
+
+				$text.text(text);
+
+				if (option.val()) {
+					$box.addClass(cssClassActive);
+
+				} else {
+					$box.removeClass(cssClassActive);
+				}
+
+			});
+
+			$select.trigger('change.select');
+		});
+
+	})();
 });

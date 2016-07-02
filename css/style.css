@@ -99,6 +99,22 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 .form p { margin-bottom: 15px; }
 
+.form__note {
+	width: 84%;
+	font-size: 12px;
+	line-height: 20px;
+	color: #999999;
+	text-align: center;
+	margin: 15px auto 0 auto;
+}
+
+.form__group {
+	padding-top: 30px;
+	margin-top: 30px;
+	border-top: 1px solid #ececec;
+}
+
+
 .form__row { position: relative; margin-bottom: 20px; }
 .form__row._button { text-align: center; margin-bottom: 0; }
 
@@ -107,7 +123,8 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 .form__row__col:first-child { margin-bottom: 10px; }
 
-.form__row__name {
+.form__row__name,
+.form__select__name {
 	display: none;
 	position: absolute;
 	top: 6px;
@@ -116,12 +133,14 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	color: #999999;
 }
 
-.form__field {
+.form__field,
+.form__select__text {
 	width: 100%;
 	font: 16px 'Open Sans', sans-serif;
 	padding: 15px 17px 18px 17px;
 	outline: none;
 	color: #000000;
+	text-align: left;
 	border: 0 none;
 	background: #f0f0f0;
 	border-radius: 4px;
@@ -188,6 +207,63 @@ a[href^="tel:"]:hover { text-decoration: none; }
 }
 
 .form__drag-drop__empty__file__btn { color: #146fab }
+
+
+.form__select {
+	position: relative;
+	cursor: default;
+	overflow: hidden;
+}
+
+.form__select__text {
+	position: relative;
+	color: #999999;
+}
+
+
+.form__select__text:before,
+.form__select__text:after {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	width: 0;
+	height: 0;
+}
+
+.form__select__text:before {
+	right: 12px;
+	margin-top: -2px;
+	border: 5px solid transparent;
+	border-top-color: #9f9f9f;
+}
+
+.form__select__text:after {
+	right: 14px;
+	margin-top: -2px;
+	border: 3px solid transparent;
+	border-top-color: #f0f0f0;
+}
+
+
+.form__select__select {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	z-index: 200;
+	-webkit-appearance: menulist-button;
+}
+
+.form__select._active .form__select__name { display: block; }
+.form__select._active .form__select__text {
+	color: #000000;
+	padding-top: 26px;
+	padding-bottom: 7px;
+}
 
 
 
@@ -1682,6 +1758,192 @@ a[href^="tel:"]:hover { text-decoration: none; }
 }
 
 
+.start { background: #ececec; }
+
+.start .panel-top .logo {
+	background-image: url("../i/logo_color.svg");
+}
+
+.start .panel-top__link {
+	position: absolute;
+	top: 18px;
+	right: 30px;
+	font-size: 16px;
+	color: #000000;
+}
+.start .panel-top__link:hover { color: #146fab; text-decoration: none; }
+
+
+.start .page {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin-bottom: -48px;
+}
+
+.start .footer {
+	min-height: 0;
+	padding: 13px 0;
+	text-align: center;
+	color: #999999;
+	background: none;
+}
+
+.start .form._white {
+	width: 100%;
+	max-width: 700px;
+}
+
+
+.start h1 { margin-bottom: 3px; }
+.start .form p { margin-bottom: 25px; }
+.start .form .btn { width: 100%; }
+
+.start .btn._big { font-size: 12px; padding-left: 10px; padding-right: 10px; }
+
+.demo__page {
+	height: 100%;
+}
+
+.demo__page__info {
+	width: 61%;
+	color: #ffffff;
+	vertical-align: middle !important;
+	background: #146fab;
+}
+
+.demo__page__form {
+	width: 39%;
+	padding: 50px;
+}
+
+.demo__page__form h2 {
+	font-size: 40px;
+	line-height: 40px;
+	margin-bottom: 11px;
+}
+
+.demo__page__form .form__group {
+	margin-left: -50px;
+	margin-right: -50px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.demo__page__form .btn { width: 100%; }
+.demo__page__form .form__note { text-align: left; width: 100%; }
+
+
+.demo__page__info__frame {
+	width: 66%;
+	margin: 0 auto;
+	font-size: 18px;
+	line-height: 28px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.demo__page__info h1 {
+	font-size: 60px;
+	line-height: 60px;
+	color: #ffffff;
+	margin-bottom: 23px;
+}
+
+.demo__page__info a { color: #ffffff; text-decoration: underline; }
+.demo__page__info a:hover { text-decoration: none; }
+
+
+
+
+
+.demo__page__info__reviews {
+	position: relative;
+	margin-top: 54px;
+}
+
+.demo__page__info__reviews__in {
+	position: relative;
+	font-size: 0;
+	padding: 0 55px;
+	height: 155px;
+	overflow: hidden;
+}
+
+
+.demo__page__info__reviews__lenta {
+	position: absolute;
+	white-space: nowrap;
+	margin-left: 0;
+	transition: margin-left 0.9s 0s;
+}
+
+.demo__page__info__reviews_lenta._notAnimate { transition: none !important; }
+
+.demo__page__info__reviews__lenta__item {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+
+	font-size: 16px;
+	line-height: 24px;
+	color: #ffffff;
+	white-space: normal;
+
+	opacity: 0;
+
+	transition: opacity 0.7s 0s;
+}
+
+.demo__page__info__reviews__lenta__item._active { opacity: 1; }
+
+.demo__page__info__reviews__lenta__item img {
+	display: block;
+	width: 60px;
+	height: 60px;
+	margin: 0 auto 18px auto;
+	border-radius: 50%;
+}
+
+.demo__page__info__reviews__lenta__item__date {
+	font-size: 14px;
+	color: #a1c6de;
+	margin-top: 1px;
+}
+
+
+
+.demo__page__info__reviews__arrow {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	font-size: 0;
+	width: 55px;
+	height: 100%;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.demo__page__info__reviews__arrow svg {
+	position: absolute;
+	top: 50%;
+	width: 10px;
+	height: 18px;
+	fill: #5b9bc5;
+	opacity: 0.5;
+	margin-top: -14px;
+}
+
+.demo__page__info__reviews__arrow:hover svg { opacity: 1; }
+
+.demo__page__info__reviews__arrow._prev,
+.demo__page__info__reviews__arrow._prev svg { left: 0; }
+
+.demo__page__info__reviews__arrow._next,
+.demo__page__info__reviews__arrow._next svg { right: 0; }
+
+.demo__page__info__reviews__arrow._disable {
+	opacity: 0.1;
+	cursor: default;
+}
 
 
 
@@ -1693,6 +1955,15 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 
 /******/
+@media (min-width: 480px) {
+
+	.start .btn._big {
+		font-size: 15px;
+		padding-left: 36px;
+		padding-right: 36px;
+	}
+}
+
 @media (min-width: 600px) {
 	.news { font-size: 0; }
 	.news__col {
@@ -1722,6 +1993,20 @@ a[href^="tel:"]:hover { text-decoration: none; }
 		max-width: 290px;
 		font-size: 14px;
 	}
+
+	.start .form._white {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+
+	.start .form._white .form__group {
+		margin-left: -100px;
+		margin-right: -100px;
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+
+
 }
 
 @media (min-width: 750px) {
@@ -2050,6 +2335,13 @@ a[href^="tel:"]:hover { text-decoration: none; }
 		max-width: 840px;
 		margin: 0 auto;
 		padding: 44px 9% 50px 9%;
+	}
+
+	.form._white .form__group {
+		margin-left: -9%;
+		margin-right: -9%;
+		padding-left: 9%;
+		padding-right: 9%;
 	}
 
 	.form .grid {
