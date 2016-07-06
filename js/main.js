@@ -64,6 +64,148 @@ $( function() {
 	})();
 
 
+	//submenu
+	(function(){
+		var slideOffet = [],
+			lastScrollTop = 0,
+			scrollSpeed = 500,
+			mySelector = 'data-slide',
+
+			$menuBox = $('.js-scroll-menu'),
+			$menuBoxItem = $('.js-scroll-menu a'),
+
+			$panelTop = $(".js-panel-top"),
+			panelTopHeight = $panelTop.height(),
+
+			$header = $(".js-slide-header"),
+			headerHeight = $header.length ? $header.height() : 0,
+
+			menuBoxOffset = 0,
+			menuHeight = 0
+		;
+
+		function setPositionSlide () {
+
+			slideOffet = [];
+
+			$menuBoxItem.each( function() {
+
+				var id = $(this).attr('href').split('#')[1],
+					offsetTop = $("[" + mySelector + "='" + id + "']").offset().top,
+					height = $("[" + mySelector + "='" + id + "']").height()
+				;
+
+				slideOffet.push(Array(
+					offsetTop - menuHeight - panelTopHeight,
+					height + offsetTop,
+					id)
+				);
+
+			});
+		}
+
+		if ($menuBox.length) {
+
+			menuBoxOffset = $menuBox.offset().top - panelTopHeight;
+			menuHeight = $menuBox.height();
+
+			setPositionSlide();
+
+			$window.resize(function() {
+				setPositionSlide();
+				headerHeight = $header.length ? $header.height() : 0;
+			});
+
+			$menuBoxItem.each( function(index) {
+
+				var $item = $(this),
+					id = $item.attr('href').split('#')[1]
+				;
+
+				$item.attr('id', id);
+
+				function stickyMenu (direction){
+					var scrollTop = $window.scrollTop();
+
+					if (slideOffet[index][0] <= scrollTop && scrollTop <= slideOffet[index][1]) {
+
+						if(direction == "up"){
+
+							$("#"+id).addClass(cssClassActive);
+							$("#"+slideOffet[index+1][2]).removeClass(cssClassActive);
+
+						} else if(index > 0) {
+
+							$("#"+id).addClass(cssClassActive);
+							$("#"+slideOffet[index-1][2]).removeClass(cssClassActive);
+
+						} else if(direction == undefined){
+
+							$("#"+id).addClass(cssClassActive);
+						}
+
+						$.each(slideOffet, function(i){
+							if (id != slideOffet[i][2]){
+
+								$("#"+slideOffet[i][2]).removeClass(cssClassActive);
+							}
+						});
+					}
+				}
+
+				stickyMenu();
+
+				$window.scroll(function() {
+					var st = $(this).scrollTop(),
+						direction
+					;
+
+					if (st > lastScrollTop) {
+						direction = "down";
+
+					} else if (st < lastScrollTop ){
+						direction = "up";
+					}
+					lastScrollTop = st;
+
+
+					if ($window.scrollTop() > menuBoxOffset) {
+						$menuBox.addClass(cssClassActive);
+					} else {
+						$menuBox.removeClass(cssClassActive);
+					}
+
+					stickyMenu(direction);
+
+					if($window.scrollTop() + $window.height() == $(document).height()) {
+						$menuBoxItem.removeClass(cssClassActive);
+						$menuBoxItem.last().addClass(cssClassActive);
+					}
+				});
+
+
+				$item.on('click', function(e){
+					var hash = $(this).attr('href').split('#')[1],
+						goTo =  $("[" + mySelector + "='" + hash + "']"),
+						offset = goTo.offset().top - menuHeight - panelTopHeight + 5
+					;
+
+
+					if (offset <= (menuHeight + panelTopHeight + headerHeight)) {
+						offset = 0;
+					}
+
+					$bodyHtml.stop().animate({ scrollTop: offset }, scrollSpeed);
+
+					e.preventDefault();
+				});
+
+			});
+		}
+
+	})();
+
+
 
 	//gallery
 	(function(){
@@ -82,13 +224,22 @@ $( function() {
 				itemWidth = $listBox.width(),
 				itemsLength = $items.length,
 
+				itemsLengthVisibleAll = 1,
+				itemsLengthVisible = 1,
+
 				go = 1
 			;
+
+			if (lenta.attr("data-fix-width") && $body.width() > 900) {
+				itemWidth = $itemCur.outerWidth(true);
+				itemsLengthVisibleAll = Math.ceil($listBox.width()/itemWidth);
+				itemsLengthVisible = itemsLengthVisibleAll > 1 ? (itemsLengthVisibleAll - 1) : 1;
+			}
 
 			$items.css({ width: itemWidth });
 			$list.css({ width: itemWidth*itemsLength });
 
-			if (itemsLength > 1) {
+			if (itemsLength > itemsLengthVisibleAll) {
 				$arrowPrev.addClass(cssClassDisable);
 			} else {
 				$arrowPrev.hide();
@@ -109,7 +260,7 @@ $( function() {
 					$arrowPrev.addClass(cssClassDisable);
 					$arrowNext.removeClass(cssClassDisable);
 
-				} else if ( index === itemsLength - 1) {
+				} else if ( index + itemsLengthVisible === itemsLength ) {
 					$arrowPrev.removeClass(cssClassDisable);
 					$arrowNext.addClass(cssClassDisable);
 				} else {
@@ -132,26 +283,41 @@ $( function() {
 			lenta.on ("click", ".js-lenta-arrow-next", (function(){
 				if (!$(this).is('.' + cssClassDisable) && go===1){
 					go=0;
-					changeSlide($itemCur.next());
+
+					var $next = $items.eq($items.index($itemCur) + itemsLengthVisibleAll);
+					changeSlide($next);
 				}
 			}));
 
 			lenta.on ("click", ".js-lenta-arrow-prev", (function(){
 				if (!$(this).is('.' + cssClassDisable) && go===1){
 					go=0;
-					changeSlide($itemCur.prev());
+
+					var $prev = $items.eq($items.index($itemCur) - itemsLengthVisibleAll);
+					changeSlide($prev);
 				}
 			}));
 
 			$window.resize(function() {
-				var index = $items.index($itemCur);
+				$itemCur = $items.eq(0);
 
 				$list.addClass(cssClassNotAnimate);
 
-				itemWidth = $listBox.width();
+				if (lenta.attr("data-fix-width") && $body.width() > 900) {
+					itemWidth = $itemCur.outerWidth(true);
+					itemsLengthVisibleAll = Math.ceil($listBox.width()/itemWidth);
+					itemsLengthVisible = itemsLengthVisibleAll > 1 ? (itemsLengthVisibleAll - 1) : 1;
+				} else {
+					itemWidth = $listBox.width();
+					itemsLengthVisibleAll = 1;
+					itemsLengthVisible = 1;
+				}
+
+				$arrowPrev.addClass(cssClassDisable);
+				$arrowNext.removeClass(cssClassDisable);
 
 				$items.css({ width: itemWidth });
-				$list.css({ width: itemWidth*itemsLength, marginLeft:-itemWidth*index });
+				$list.css({ width: itemWidth*itemsLength, marginLeft:0 });
 			});
 		}
 
