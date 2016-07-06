@@ -104,6 +104,8 @@ a[href^="tel:"]:hover { text-decoration: none; }
 }
 
 .form p { margin-bottom: 15px; }
+.form__error { display: none; color: red; }
+
 
 .form__note {
 	width: 84%;
@@ -143,11 +145,11 @@ a[href^="tel:"]:hover { text-decoration: none; }
 .form__select__text {
 	width: 100%;
 	font: 16px 'Open Sans', sans-serif;
-	padding: 15px 17px 18px 17px;
+	padding: 14px 16px 17px 16px;
 	outline: none;
 	color: #000000;
 	text-align: left;
-	border: 0 none;
+	border: 1px solid #f0f0f0;
 	background: #f0f0f0;
 	border-radius: 4px;
 	box-sizing: border-box;
@@ -271,6 +273,9 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	padding-bottom: 7px;
 }
 
+
+.form__field._error,
+.form__select._error .form__select__text { border-color: #f87c7c; }
 
 
 .icon:before {
@@ -2603,6 +2608,13 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	.page__slide._slide1 h1 {
 		font-size: 50px;
 		line-height: 50px;
+		color: #ffffff;
+	}
+
+	.page__slide._slide1 .btn._white {
+		color: #ffffff;
+		background: none;
+		border-color: #ffffff;
 	}
 
 	.page__slide._slide1 { height: 644px; }

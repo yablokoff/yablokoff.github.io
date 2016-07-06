@@ -61,14 +61,15 @@
 		</div>
 		<div class="grid__col demo__page__form">
 			<!--form-->
-			<form action="#" class="form">
+			<form action="#" class="form js-form">
 				<h2>Request a demo</h2>
+				<p class="form__error js-form-error"></p>
 				<div class="form__row">
-					<input type="text" name="firstName" id="firstName" value="" placeholder="First name*" class="form__field" />
+					<input type="text" name="firstName" id="firstName" value="" placeholder="First name*" class="form__field" data-require="1" />
 					<div class="form__row__name">First name*</div>
 				</div>
 				<div class="form__row">
-					<input type="text" name="lastName" id="lastName" value="" placeholder="Last name*" class="form__field" />
+					<input type="text" name="lastName" id="lastName" value="" placeholder="Last name*" class="form__field" data-require="1" />
 					<div class="form__row__name">Last name*</div>
 				</div>
 				<div class="grid form__row">
@@ -80,13 +81,13 @@
 					</div>
 					<div class="grid__col form__row__col">
 						<div class="form__row__col__in">
-							<input type="text" name="email" id="email" value="" placeholder="Email*" class="form__field" />
+							<input type="text" name="email" id="email" value="" placeholder="Email*" class="form__field" data-require="1" />
 							<div class="form__row__name">Email*</div>
 						</div>
 					</div>
 				</div>
 				<div class="form__row">
-					<input type="text" name="company" id="company" value="" placeholder="Company name*" class="form__field" />
+					<input type="text" name="company" id="company" value="" placeholder="Company name*" class="form__field" data-require="1" />
 					<div class="form__row__name">Company name*</div>
 				</div>
 
