@@ -21,15 +21,16 @@
 	</div>
 	<div class="page">
 		<div class="width-site">
-			<form action="#" class="form _white">
+			<form action="#" class="form _white js-form">
 				<h1 class="page__slide__title">Get started</h1>
 				<p>Easy setup. 30-day unlimited-use free trial. No credit card required.</p>
+				<p class="form__error js-form-error"></p>
 				<div class="form__row">
-					<input type="text" name="firstName" id="firstName" value="" placeholder="First name*" class="form__field" />
+					<input type="text" name="firstName" id="firstName" value="" placeholder="First name*" class="form__field" data-require="1" />
 					<div class="form__row__name">First name*</div>
 				</div>
 				<div class="form__row">
-					<input type="text" name="lastName" id="lastName" value="" placeholder="Last name*" class="form__field" />
+					<input type="text" name="lastName" id="lastName" value="" placeholder="Last name*" class="form__field" data-require="1" />
 					<div class="form__row__name">Last name*</div>
 				</div>
 				<div class="grid form__row">
@@ -41,7 +42,7 @@
 					</div>
 					<div class="grid__col form__row__col">
 						<div class="form__row__col__in">
-							<input type="text" name="email" id="email" value="" placeholder="Email*" class="form__field" />
+							<input type="text" name="email" id="email" value="" placeholder="Email*" class="form__field" data-require="1" />
 							<div class="form__row__name">Email*</div>
 						</div>
 					</div>
@@ -50,7 +51,7 @@
 					<div class="grid__col form__row__col">
 						<div class="form__row__col__in">
 
-							<div class="form__select js-form-select"><!-- _active --->
+							<div class="form__select js-form-select" data-require="1"><!-- _active --->
 								<div class="form__select__text js-form-select-text" data-text-empty="Country*">Country*</div>
 								<select name="type" class="form__select__select">
 									<option value="" selected="selected">Country</option>
@@ -64,7 +65,7 @@
 					</div>
 					<div class="grid__col form__row__col">
 						<div class="form__row__col__in">
-							<input type="text" name="company" id="company" value="" placeholder="Company name*" class="form__field" />
+							<input type="text" name="company" id="company" value="" placeholder="Company name*" class="form__field" data-require="1" />
 							<div class="form__row__name">Company name*</div>
 						</div>
 					</div>

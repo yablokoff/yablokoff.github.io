@@ -368,9 +368,23 @@ $( function() {
 
 	//form
 	(function(){
-		var $selectBox = $(".js-form-select");
+		var $form = $(".js-form"),
+			$errorMessageBox = $form.find(".js-form-error"),
+			$selectBox = $(".js-form-select"),
+
+			texts = {
+				empty: "Заполните поля",
+				email: "Не верный формат поля"
+			}
+		;
 
 
+		function hideError (field) {
+			field.removeClass(cssClassError);
+			$errorMessageBox.text("").hide();
+		}
+
+		//select
 		$selectBox.each(function () {
 			var $select = $(this).find('select');
 
@@ -394,6 +408,50 @@ $( function() {
 			});
 
 			$select.trigger('change.select');
+		});
+
+
+		$form.on ("focus", "." + cssClassError, (function(){
+			hideError($(this));
+		}));
+
+		//form submit
+		$form.bind( 'submit', function(event) {
+			var $requireFields = $(this).find("[data-require]"),
+				$fieldEmail = $(this).find("[name='email']"),
+
+				errors = 0
+			;
+
+			$requireFields.each(function () {
+				var $field = $(this);
+
+				if ($field.is(".js-form-select")) {
+					var option = $field.find("select").children(':selected');
+
+					if (!option.val()) {
+						$field.addClass(cssClassError);
+						errors++;
+					}
+
+				} else if (!$field[0].value) {
+					$field.addClass(cssClassError);
+					errors++;
+				}
+
+			});
+
+
+			if (errors) {
+				$errorMessageBox.text(texts.empty).show();
+				event.preventDefault();
+
+			} else if ($fieldEmail.length && $fieldEmail.val().indexOf("@") === -1) {
+				$fieldEmail.addClass(cssClassError);
+				$errorMessageBox.text(texts.email).show();
+				event.preventDefault();
+			}
+
 		});
 
 	})();
