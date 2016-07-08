@@ -415,6 +415,17 @@ $( function() {
 			hideError($(this));
 		}));
 
+		$form.on ("blur", "input[type=text], input[type=password], textarea", (function(){
+			var $el = $(this);
+
+			if ($el.val()) {
+				$el.parent().addClass(cssClassActive);
+			} else {
+				$el.parent().removeClass(cssClassActive);
+			}
+
+		}));
+
 		//form submit
 		$form.bind( 'submit', function(event) {
 			var $requireFields = $(this).find("[data-require]"),
