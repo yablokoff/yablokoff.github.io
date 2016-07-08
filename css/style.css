@@ -1814,7 +1814,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 
 .faq { padding: 0 0 40px 0; }
-.faq .page__slide__header { margin-bottom: 24px; padding-bottom: 0; }
+.faq .page__slide__header { margin-bottom: 24px; }
 
 .faq__list dt {
 	font: 20px/20px 'ProximaNovaExCn-Semibold', sans-serif;
