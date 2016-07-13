@@ -344,7 +344,7 @@ $( function() {
 
 	//tabs
 	(function(){
-		var $tabs = $(".tabs");
+		var $tabs = $(".js-tabs");
 
 		$tabs.on ("click", ".js-tabs-item", (function(){
 			$(this).addClass(cssClassActive).siblings().removeClass(cssClassActive);
@@ -466,4 +466,29 @@ $( function() {
 		});
 
 	})();
+
+	//tabs product
+	(function(){
+		var $tabsInfo = $(".js-tabs-info"),
+			$items = $tabsInfo.find(".js-tabs-info-item"),
+			$imgs = $tabsInfo.find(".js-tabs-info-img")
+		;
+
+		function viewElement (obj) {
+			obj.addClass(cssClassActive).siblings().removeClass(cssClassActive);
+		}
+
+		$tabsInfo.on ("click", ".js-tabs-info-door", (function(){
+			var $curItem = $(this).closest(".js-tabs-info-item"),
+				curIndex = $items.index($curItem),
+				$curImg = $imgs.eq(curIndex)
+			;
+
+			viewElement($curItem);
+			viewElement($curImg);
+
+		}));
+
+	})();
+
 });
