@@ -225,7 +225,8 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	width: 36px;
 	height: 28px;
 	margin-top: -14px;
-	background: red;
+	background: url("../i/upload.svg") no-repeat 0 0;
+	background-size: contain;
 }
 
 .form__upload {
@@ -2107,6 +2108,12 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	width: 86px;
 	height: 74px;
 	margin-top: -37px;
+}
+
+.soon__list__item ._icon6 {
+	width: 76px;
+	height: 68px;
+	margin-top: -34px;
 }
 
 
