@@ -491,4 +491,51 @@ $( function() {
 
 	})();
 
+	//pricing
+	(function(){
+		var $box = $(".js-pricing-list"),
+			$frame = $(".js-pricing-frame"),
+
+			heightBox = $box.height()
+		;
+
+		function heightFrame () {
+			$frame.each( function() {
+				$(this).css({ minHeight: heightBox });
+			});
+		}
+
+		if ($body.width() > 1024 ) {
+			heightFrame();
+		}
+
+		$window.resize(function() {
+
+			setTimeout(function(){
+
+				$frame.css({ minHeight: 0 });
+
+				if ($body.width() > 1024) {
+					heightBox = $box.height();
+					heightFrame();
+				}
+
+			}, 1000);
+
+		});
+
+		$body.on ("click", ".js-pricing-extra-door", (function(){
+			var $item = $(this).closest(".js-pricing-extra-item");
+
+			$item.siblings().removeClass(cssClassActive);
+
+			if ($item.is("." + cssClassActive)) {
+				$item.removeClass(cssClassActive);
+			} else {
+				$item.addClass(cssClassActive);
+			}
+		}));
+
+	})();
+
 });
