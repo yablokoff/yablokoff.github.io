@@ -319,6 +319,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	font-size: 0;
 	background: url("../i/logo_white.svg") no-repeat 0 0;
 	background-size: cover;
+	z-index: 2;
 }
 
 .panel-top {
@@ -2608,6 +2609,32 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	margin: 10px;
 }
 
+.signin__companies { padding: 4px 0 0 0; text-align: left; }
+.signin__companies dt { margin-bottom: 9px; color: #999999; }
+.signin__companies li { margin-bottom: 10px; }
+.signin__companies a {
+	display: inline-block;
+	font-size: 16px;
+	color: #333333;
+}
+.signin__companies a:hover { text-decoration: none; }
+
+.signin__companies img {
+	display: inline-block;
+	vertical-align: middle;
+	width: 48px;
+	height: 48px;
+	margin-right: 6px;
+	border: 1px solid #e1e1e1;
+	border-radius: 50%;
+}
+
+.start .signin .form._white {
+	max-width: 540px;
+}
+
+.start .signin h1 { margin-bottom: 13px; }
+
 
 /******/
 @media (min-width: 480px) {
@@ -2639,6 +2666,10 @@ a[href^="tel:"]:hover { text-decoration: none; }
 		max-width: 840px;
 		margin: 0 auto;
 		padding: 34px 40px 40px 40px;
+	}
+
+	.start .signin .form._white {
+		padding: 34px 80px 40px 80px;
 	}
 
 	.form._white .form__group {
@@ -3241,6 +3272,8 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 	.start { background: #ececec; }
 
+	.start .signin h1 { margin-bottom: 23px; }
+
 	.start .panel-top .logo {
 		background-image: url("../i/logo_color.svg");
 	}
@@ -3272,6 +3305,8 @@ a[href^="tel:"]:hover { text-decoration: none; }
 		color: #999999;
 		background: none;
 	}
+
+	.start .signin .form._white {  padding: 57px 80px 60px 80px; }
 
 	.support {
 		margin-bottom: 0;
