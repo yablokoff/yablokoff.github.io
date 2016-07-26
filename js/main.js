@@ -209,7 +209,10 @@ $( function() {
 
 	//gallery
 	(function(){
-		var $lents = $(".js-lenta");
+		var $lents = $(".js-lenta"),
+
+			isMobile = !!(navigator.userAgent.match(/iPhone|iPod|iPad|iOS|android/i))
+		;
 
 		function gallery(lenta) {
 			var $arrowNext = lenta.find(".js-lenta-arrow-next"),
@@ -220,6 +223,8 @@ $( function() {
 				$list = lenta.find(".js-lenta-list"),
 				$items = $list.find('.js-lenta-list-item'),
 				$itemCur = $list.find('.js-lenta-list-item:first'),
+
+				$slider = lenta.find(".js-lenta-slider-item"),
 
 				itemWidth = $listBox.width(),
 				itemsLength = $items.length,
@@ -248,13 +253,14 @@ $( function() {
 
 
 			function changeSlide( $nextSlide ){
-				var index;
+				var index, $slide;
 
 				$itemCur.removeClass(cssClassActive);
 				$itemCur = $nextSlide;
 
 				$itemCur.addClass(cssClassActive);
 				index = $items.index($itemCur);
+				$slide = $slider.eq(index);
 
 				if (index === 0){
 					$arrowPrev.addClass(cssClassDisable);
@@ -275,28 +281,61 @@ $( function() {
 
 				$list.css({ marginLeft:-itemWidth*index });
 
+				$slide.addClass(cssClassActive).siblings().removeClass(cssClassActive);
+
 				setTimeout(function(){
 					go = 1;
 				}, 900);
 			}
 
-			lenta.on ("click", ".js-lenta-arrow-next", (function(){
-				if (!$(this).is('.' + cssClassDisable) && go===1){
-					go=0;
+			if(!isMobile) {
 
-					var $next = $items.eq($items.index($itemCur) + itemsLengthVisibleAll);
-					changeSlide($next);
-				}
-			}));
+				lenta.removeClass("_mobile");
 
-			lenta.on ("click", ".js-lenta-arrow-prev", (function(){
-				if (!$(this).is('.' + cssClassDisable) && go===1){
-					go=0;
+				lenta.on ("click", ".js-lenta-arrow-next", (function(){
+					if (!$(this).is('.' + cssClassDisable) && go===1){
+						go=0;
 
-					var $prev = $items.eq($items.index($itemCur) - itemsLengthVisibleAll);
-					changeSlide($prev);
-				}
-			}));
+						var $next = $items.eq($items.index($itemCur) + itemsLengthVisibleAll);
+						changeSlide($next);
+					}
+				}));
+
+				lenta.on ("click", ".js-lenta-arrow-prev", (function(){
+					if (!$(this).is('.' + cssClassDisable) && go===1){
+						go=0;
+
+						var $prev = $items.eq($items.index($itemCur) - itemsLengthVisibleAll);
+						changeSlide($prev);
+					}
+				}));
+
+			} else {
+
+				console.log("mobile");
+
+				lenta.addClass("_mobile");
+
+				lenta.on("swipeleft",function(){
+
+					if ($items.index($itemCur) + 1 < itemsLength) {
+						var $next = $items.eq($items.index($itemCur) + itemsLengthVisibleAll);
+						changeSlide($next);
+					}
+
+				});
+
+				lenta.on("swiperight",function(){
+
+					console.log($items.index($itemCur));
+
+					if ($items.index($itemCur) != 0) {
+						var $prev = $items.eq($items.index($itemCur) - itemsLengthVisibleAll);
+						changeSlide($prev);
+					}
+				});
+
+			}
 
 			$window.resize(function() {
 				$itemCur = $items.eq(0);
