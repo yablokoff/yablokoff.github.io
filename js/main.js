@@ -340,6 +340,9 @@ $( function() {
 			$window.resize(function() {
 				$itemCur = $items.eq(0);
 
+				$itemCur.addClass(cssClassActive).siblings().removeClass(cssClassActive);
+				$slider.eq(0).addClass(cssClassActive).siblings().removeClass(cssClassActive);
+
 				$list.addClass(cssClassNotAnimate);
 
 				if (lenta.attr("data-fix-width") && $body.width() > 900) {

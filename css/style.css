@@ -2013,6 +2013,8 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 .demo__page__info__reviews__in {
 	position: relative;
+	width: 90%;
+	margin: 0 auto;
 	font-size: 0;
 	height: 200px;
 	overflow: hidden;
@@ -2078,7 +2080,6 @@ a[href^="tel:"]:hover { text-decoration: none; }
 }
 
 .demo__page__info__reviews__arrow svg {
-	display: none;
 	position: absolute;
 	top: 50%;
 	width: 10px;
@@ -2100,6 +2101,29 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	opacity: 0.1;
 	cursor: default;
 }
+
+.demo__page__info__reviews__slider {
+	display: none;
+	padding-top: 10px;
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+}
+
+.demo__page__info__reviews__slider li {
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	margin: 0 5px;
+	border-radius: 50%;
+	background: #5b9ac4;
+}
+
+.demo__page__info__reviews__slider li._active { background: #ffffff; }
+
+
+.demo__page__info__reviews._mobile .demo__page__info__reviews__slider { display: block; }
+.demo__page__info__reviews._mobile .demo__page__info__reviews__arrow svg { display: none; }
 
 
 .soon { padding: 27px 0 6px 0; }
@@ -2407,7 +2431,6 @@ a[href^="tel:"]:hover { text-decoration: none; }
 }
 
 .reviews__list__arrow svg {
-	display: none;
 	position: absolute;
 	top: 50%;
 	width: 15px;
@@ -2429,6 +2452,32 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	opacity: 0.1;
 	cursor: default;
 }
+
+
+.reviews__list__slider {
+	display: none;
+	padding-top: 22px;
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+}
+
+.reviews__list__slider li {
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	margin: 0 5px;
+	border-radius: 50%;
+	background: #e4e4e4;
+}
+
+.reviews__list__slider li._active { background: #999999; }
+
+
+.reviews__list._mobile .reviews__list__slider { display: block; }
+.reviews__list._mobile .reviews__list__arrow svg { display: none; }
+
+
 
 .page__slide.map-inline  { padding-bottom: 40px; }
 
@@ -3639,7 +3688,8 @@ a[href^="tel:"]:hover { text-decoration: none; }
 		margin-right: 20px;
 	}
 
-	.reviews__list__arrow svg { display: block; }
+	.reviews__list._mobile .reviews__list__slider { display: none; }
+	.reviews__list._mobile .reviews__list__arrow svg { display: block; }
 }
 
 
@@ -4072,9 +4122,9 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 
 	.demo__page__info__reviews { margin-top: 54px; }
-	.demo__page__info__reviews__arrow svg { display: block; }
 	.demo__page__info__reviews__in {
 		padding: 0 55px;
+		width: auto;
 	}
 
 
