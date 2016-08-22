@@ -97,21 +97,21 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 .btn._icon {
 	position: relative;
-	padding-left: 58px !important;
+	padding-left: 51px !important;
 }
 
 .btn._icon:before {
 	content: ' ';
 	position: absolute;
 	top: 50%;
-	left: 23px;
+	left: 17px;
 }
 
 .btn._icon._video:before {
 	width: 28px;
 	height: 28px;
 	margin-top: -14px;
-	background: gray;
+	background: url("../i/video.svg") no-repeat 0 0;
 }
 
 .form { text-align: center; }
@@ -2916,7 +2916,7 @@ a[href^="tel:"]:hover { text-decoration: none; }
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 105px;
+	width: 106px;
 	height: 63px;
 }
 .stage__item__price__ic { fill: #54b8e8; }
@@ -3123,6 +3123,8 @@ a[href^="tel:"]:hover { text-decoration: none; }
 
 @media (min-width: 750px) {
 
+	.btn._icon { padding-left: 70px !important; }
+	.btn._icon:before { left: 26px; }
 
 	.width-site { margin: 0 15px; }
 
