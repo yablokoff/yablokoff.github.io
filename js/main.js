@@ -513,11 +513,26 @@ $( function() {
 	(function(){
 		var $tabsInfo = $(".js-tabs-info"),
 			$items = $tabsInfo.find(".js-tabs-info-item"),
-			$imgs = $tabsInfo.find(".js-tabs-info-img")
+			$firstItem = $tabsInfo.find(".js-tabs-info-item:first"),
+			$imgs = $tabsInfo.find(".js-tabs-info-img"),
+			$textBox = $tabsInfo.find(".js-tabs-info-item-text")
 		;
 
 		function viewElement (obj) {
 			obj.addClass(cssClassActive).siblings().removeClass(cssClassActive);
+		}
+
+		function viewText (obj) {
+			if ($textBox.is(":visible")) {
+				$textBox.text(obj.find(".js-tabs-info-item-content").text());
+			}
+		}
+
+
+		if ($firstItem.length) {
+			viewElement($firstItem);
+			viewText($firstItem);
+			viewElement($firstItem);
 		}
 
 		$tabsInfo.on ("click", ".js-tabs-info-door", (function(){
@@ -527,6 +542,7 @@ $( function() {
 			;
 
 			viewElement($curItem);
+			viewText($curItem);
 			viewElement($curImg);
 
 		}));
